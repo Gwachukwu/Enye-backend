@@ -15,6 +15,14 @@ app.use(function (req, res, next) {
   next(err);
 });
 
+app.get("/", (req, res) => {
+    res.status(200).json({
+      success: true,
+      message: "Enye Backend Challenge",
+      endpoint: "api/rates?base=the base currency&currency=the currencies you want separated by commas",
+    });
+  });
+
 if (app.get("env") === "development") {
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
